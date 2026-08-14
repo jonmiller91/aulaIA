@@ -1,0 +1,34 @@
+# Dependências
+node_modules/
+
+# Build
+dist/
+dist-ssr/
+*.local
+
+# Ambiente — nunca commitar secrets
+.env
+.env.*
+!.env.example
+
+# Logs e cache
+npm-debug.log*
+pnpm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+*.log
+
+# Editor / SO
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/*
+!.vscode/extensions.json
+
+# Testes e cobertura
+coverage/
+
+# Tokens e anotações locais
+Notes.txt
+*.zip

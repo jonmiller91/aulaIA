@@ -1,0 +1,14 @@
+---
+description: Mentalidade sênior — escalabilidade, desacoplamento e UX
+alwaysApply: true
+---
+
+# Nível Sênior
+
+- Pensar em escalabilidade desde o início
+- Evitar acoplamento forte entre partes do sistema
+- Criar abstrações apenas quando necessário (não antecipar demais)
+- Otimizar performance antes de escalar infraestrutura
+- Código deve ser fácil de manter por outras pessoas
+- Sempre considerar a experiência do usuário (UX)
+- Priorizar velocidade de desenvolvimento **com** qualidade

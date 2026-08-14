@@ -1,0 +1,25 @@
+---
+description: Padrões globais de código limpo, modular e seguro
+alwaysApply: true
+---
+
+# Regras Globais
+
+- Escrever código limpo, legível e modular
+- Evitar duplicação (DRY)
+- Priorizar composição em vez de herança
+- Criar funções e componentes pequenos e reutilizáveis
+- Nomear variáveis e funções de forma descritiva (sem abreviações confusas)
+- Separar lógica de negócio da UI
+- Evitar comentários desnecessários; o código deve ser autoexplicativo
+- Sempre tratar erros (try/catch ou fallback UI)
+- Garantir responsividade (mobile-first)
+- Nunca hardcodar dados sensíveis (tokens, keys, URLs privadas)
+
+```ts
+// ❌ BAD
+const apiKey = "sk-abc123";
+
+// ✅ GOOD
+const apiKey = import.meta.env.VITE_PUBLIC_ANON_KEY;
+```

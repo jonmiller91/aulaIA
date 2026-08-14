@@ -1,0 +1,11 @@
+---
+description: Padrão avançado — código production-ready e decisões explícitas
+alwaysApply: true
+---
+
+# Avançado
+
+- Gerar código com nível de produção (production-ready)
+- Evitar soluções genéricas ou boilerplate fraco
+- Preferir soluções modernas e performáticas
+- Explicar decisões quando forem complexas

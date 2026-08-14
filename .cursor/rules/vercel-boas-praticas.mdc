@@ -1,0 +1,15 @@
+---
+description: Boas práticas Vercel — build, env, performance e SEO
+alwaysApply: true
+---
+
+# Vercel — Boas Práticas
+
+- Garantir que o build passe sem erros
+- Configurar variáveis de ambiente corretamente no painel
+- Nunca expor secrets no código
+- Otimizar performance (lazy loading, imagens)
+- Monitorar logs de erro
+- Usar preview deployments para testes
+- Garantir SEO básico (`title`, meta tags)
+- Evitar requests desnecessários no carregamento inicial

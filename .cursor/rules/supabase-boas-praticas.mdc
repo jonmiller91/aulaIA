@@ -1,0 +1,28 @@
+---
+description: Boas práticas Supabase — RLS, keys, queries e segurança
+globs: "**/supabase/**/*,**/*supabase*.{ts,tsx,js,jsx}"
+alwaysApply: false
+---
+
+# Supabase — Boas Práticas
+
+- Nunca expor `service_role` key no frontend
+- Manter RLS (Row Level Security) sempre ativado
+- Criar policies claras e seguras
+- Validar dados antes de enviar ao banco
+- Evitar lógica complexa só no frontend — usar RPC quando necessário
+- Nomes de tabelas claros e consistentes
+- Sempre tratar erros das queries
+- Evitar múltiplas chamadas desnecessárias
+- Preferir `select` específico em vez de `*`
+
+```ts
+// ❌ BAD
+const { data } = await supabase.from("users").select("*");
+
+// ✅ GOOD
+const { data, error } = await supabase
+  .from("users")
+  .select("id, name, email");
+if (error) throw error;
+```

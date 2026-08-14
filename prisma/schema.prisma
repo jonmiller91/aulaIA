@@ -1,0 +1,98 @@
+// SELECTCARS — Prisma Schema alinhado ao PostgreSQL do Supabase.
+// Enums do app usam labels com acento (text + CHECK). Auth: GoTrue (auth.users).
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Profile {
+  id        String   @id @db.Uuid
+  createdAt DateTime @default(now()) @map("created_at") @db.Timestamptz()
+  email     String?
+  nome      String?
+  role      String   @default("lojista")
+  ativo     Boolean  @default(true)
+
+  @@map("profiles")
+}
+
+model Vehicle {
+  id               String   @id
+  slug             String   @unique
+  createdAt        DateTime @default(now()) @map("created_at") @db.Timestamptz()
+  updatedAt        DateTime @updatedAt @map("updated_at") @db.Timestamptz()
+  marca            String
+  modelo           String
+  versao           String   @default("")
+  ano              Int
+  cor              String   @default("")
+  km               Int      @default(0)
+  categoria        String
+  carroceria       String
+  cambio           String
+  combustivel      String
+  motorPotencia    String   @default("") @map("motor_potencia")
+  velMax           String   @default("") @map("vel_max")
+  preco            Decimal? @db.Decimal(14, 2)
+  disponivelVisita Boolean  @default(true) @map("disponivel_visita")
+  numeroDonos      Int?     @map("numero_donos")
+  procedencia      String?
+  selos            String[]
+  destaques        String[]
+  descricao        String   @default("")
+  status           String   @default("rascunho")
+  imageKey         String?  @map("image_key")
+  imageUrl         String?  @map("image_url")
+  createdBy        String?  @map("created_by") @db.Uuid
+
+  imagens   VehicleImage[]
+  consultas Inquiry[]
+
+  @@map("vehicles")
+}
+
+model VehicleImage {
+  id        String   @id @default(uuid()) @db.Uuid
+  createdAt DateTime @default(now()) @map("created_at") @db.Timestamptz()
+  url       String
+  ordem     Int      @default(0)
+  legenda   String?
+  vehicleId String   @map("vehicle_id")
+  vehicle   Vehicle  @relation(fields: [vehicleId], references: [id], onDelete: Cascade)
+
+  @@index([vehicleId, ordem])
+  @@map("vehicle_images")
+}
+
+model Inquiry {
+  id        String   @id @default(uuid()) @db.Uuid
+  createdAt DateTime @default(now()) @map("created_at") @db.Timestamptz()
+  nome      String?
+  telefone  String?
+  mensagem  String?
+  canal     String   @default("whatsapp")
+  status    String   @default("novo")
+  vehicleId String?  @map("vehicle_id")
+  vehicle   Vehicle? @relation(fields: [vehicleId], references: [id], onDelete: SetNull)
+
+  @@map("inquiries")
+}
+
+model Agendamento {
+  id            String    @id @default(uuid()) @db.Uuid
+  createdAt     DateTime  @default(now()) @map("created_at") @db.Timestamptz()
+  updatedAt     DateTime  @updatedAt @map("updated_at") @db.Timestamptz()
+  nome          String
+  buscaDescrita String?   @map("busca_descrita")
+  dataHora      DateTime? @map("data_hora") @db.Timestamptz()
+  confirmado    Boolean   @default(false)
+  cancelado     Boolean   @default(false)
+  observacoes   String?
+
+  @@map("agendamentos")
+}

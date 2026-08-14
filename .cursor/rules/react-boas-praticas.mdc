@@ -1,0 +1,27 @@
+---
+description: Boas práticas React — hooks, estado, componentes e pastas
+globs: "**/*.{tsx,jsx}"
+alwaysApply: false
+---
+
+# React — Boas Práticas
+
+- Usar apenas functional components e hooks (nunca classes)
+- Não usar `useEffect` sem necessidade; evitar para lógica derivável
+- Usar `useState` só quando necessário; levantar estado de forma controlada
+- Um componente = uma responsabilidade
+- Evitar props drilling (context ou composição)
+- Preferir componentes reutilizáveis; lazy loading para componentes pesados
+- Sempre usar `key` única em listas
+- Evitar lógica complexa no JSX — extrair para helpers/hooks
+- Estrutura de pastas: `components/`, `hooks/`, `services/`, `utils/`
+
+```tsx
+// ❌ BAD — efeito para valor derivado
+useEffect(() => {
+  setFullName(`${first} ${last}`);
+}, [first, last]);
+
+// ✅ GOOD
+const fullName = `${first} ${last}`;
+```

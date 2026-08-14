@@ -1,0 +1,23 @@
+---
+description: Boas práticas Git/GitHub — commits, branches e PRs
+alwaysApply: true
+---
+
+# GitHub — Boas Práticas
+
+- Commits pequenos e descritivos
+- Usar Conventional Commits: `feat:`, `fix:`, `refactor:`, `chore:`
+- Nunca commitar `.env` ou dados sensíveis
+- Branches por feature: `feature/nome`
+- Sempre abrir pull request antes de merge
+- Revisar código antes de aprovar
+- Manter histórico limpo
+- Evitar commits genéricos como `"update"`
+
+```
+# ❌ BAD
+git commit -m "update"
+
+# ✅ GOOD
+git commit -m "feat: add login form validation"
+```

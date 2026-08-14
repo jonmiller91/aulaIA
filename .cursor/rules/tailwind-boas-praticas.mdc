@@ -1,0 +1,25 @@
+---
+description: Boas práticas Tailwind — utilitários, design system e a11y
+globs: "**/*.{tsx,jsx,css}"
+alwaysApply: false
+---
+
+# Tailwind — Boas Práticas
+
+- Preferir classes utilitárias a CSS customizado
+- Evitar strings de classes longas e repetidas — extrair para componentes
+- Manter consistência visual (spacing, cores, tipografia do design system)
+- Sempre mobile-first (`sm:`, `md:`, `lg:`)
+- Evitar inline styles
+- Usar variantes (`hover:`, `focus:`, `focus-visible:`) corretamente
+- Componentizar padrões UI repetidos
+- Evitar overdesign — UI simples e clara
+- Garantir acessibilidade (contraste e focus states)
+
+```tsx
+// ❌ BAD
+<button style={{ padding: 12 }} className="bg-blue-500 hover:bg-blue-600 focus:outline-none ...">
+
+// ✅ GOOD
+<button className="bg-brand-500 px-3 py-2 text-white hover:bg-brand-600 focus-visible:ring-2 focus-visible:ring-brand-400">
+```

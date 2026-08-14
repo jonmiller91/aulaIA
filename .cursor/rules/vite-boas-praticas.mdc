@@ -1,0 +1,23 @@
+---
+description: Boas práticas Vite — estrutura, env, bundle e aliases
+globs: "vite.config.*,**/.env*,src/**/*.{ts,tsx,js,jsx}"
+alwaysApply: false
+---
+
+# Vite — Boas Práticas
+
+- Manter estrutura simples e organizada
+- Separar config de ambiente em `.env` (nunca commitar secrets)
+- Nunca expor variáveis sensíveis no frontend — só `VITE_*` públicas
+- Usar import dinâmico para otimizar bundle
+- Evitar dependências desnecessárias
+- Manter build leve e rápido
+- Usar aliases de import (ex.: `@/components`)
+
+```ts
+// ❌ BAD
+import HeavyChart from "./HeavyChart";
+
+// ✅ GOOD
+const HeavyChart = lazy(() => import("./HeavyChart"));
+```
