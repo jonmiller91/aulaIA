@@ -7,6 +7,7 @@
     "build": "vite build",
     "dev": "vite"
   },
+  "packageManager": "pnpm@10.15.0",
   "dependencies": {
     "@emotion/react": "11.14.0",
     "@emotion/styled": "11.14.1",
@@ -59,6 +60,8 @@
     "react-responsive-masonry": "2.7.1",
     "react-router": "7.13.0",
     "react-slick": "0.31.0",
+    "react": "18.3.1",
+    "react-dom": "18.3.1",
     "recharts": "2.15.2",
     "sonner": "2.0.3",
     "tailwind-merge": "3.2.0",
@@ -81,11 +84,6 @@
     },
     "react-dom": {
       "optional": true
-    }
-  },
-  "pnpm": {
-    "overrides": {
-      "vite": "6.3.5"
     }
   }
 }
